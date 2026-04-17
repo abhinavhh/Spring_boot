@@ -40,7 +40,7 @@ public class DummySensorDataService {
     }
 
     private void insertFallbackData(Users user) {
-        List<String> sensorTypes = List.of("Temperature", "Humidity", "Soil Moisture");
+        List<String> sensorTypes = List.of("Temperature", "Humidity", "SoilMoisture");
 
         for (String type : sensorTypes) {
             SensorData data = new SensorData();
@@ -52,7 +52,7 @@ public class DummySensorDataService {
                 data.setValue(15 + random.nextDouble() * 15); // 15–30 °C
             } else if (type.equals("Humidity")) {
                 data.setValue(Math.floor(40 + random.nextDouble() * 30)); // 40–70 %
-            } else if (type.equals("Soil Moisture")) {
+            } else if (type.equals("SoilMoisture")) {
                 data.setValue(Math.floor(20 + random.nextDouble() * 50)); // 20–70 %
             }
 
@@ -65,7 +65,7 @@ public class DummySensorDataService {
         Users user = userRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        List<String> sensorTypes = List.of("Temperature", "Humidity", "Soil Moisture");
+        List<String> sensorTypes = List.of("Temperature", "Humidity", "SoilMoisture");
 
         for (String type : sensorTypes) {
             for (int i = 0; i < 20; i++) {
@@ -78,7 +78,7 @@ public class DummySensorDataService {
                     data.setValue(15 + random.nextDouble() * 15); // 15–30 °C
                 } else if (type.equals("Humidity")) {
                     data.setValue(40 + random.nextDouble() * 30); // 40–70 %
-                } else if (type.equals("Soil Moisture")) {
+                } else if (type.equals("SoilMoisture")) {
                     data.setValue(20 + random.nextDouble() * 50); // 20–70 %
                 }
 
